@@ -1,4 +1,5 @@
 import React from "react";
+import hero from "../assets/hero.png";
 
 function Card({ data }) {
   console.log(data);
@@ -12,7 +13,12 @@ function Card({ data }) {
       {data?.map((curItem, index) => {
         return (
           <div className="border border-gray-300" key={index}>
-            <img src={curItem.urlToImage} />
+            <img
+              src={curItem.urlToImage}
+              onError={(e) => {
+                e.target.src = hero;
+              }}
+            />
 
             <div className="p-2">
               <a
